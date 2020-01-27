@@ -9,6 +9,7 @@
 #define BUZZER_PIN 4
 #define LEFT_PHOTORESISTOR_PIN A2
 #define RIGHT_PHOTORESISTOR_PIN A0
+#define SERVO_PIN 3
 
 Adafruit_DotStar strip = Adafruit_DotStar(1, INTERNAL_DS_DATA, INTERNAL_DS_CLK, DOTSTAR_BGR);
 Servo servo;
@@ -19,6 +20,8 @@ Servo servo;
 void setup() {
   strip.begin();
   Serial.begin(115200);
+  pinMode(SERVO_PIN, OUTPUT);
+  servo.attach(SERVO_PIN);
   pinMode(LEFT_PHOTORESISTOR_PIN, INPUT);
   pinMode(RIGHT_PHOTORESISTOR_PIN, INPUT);
 }
